@@ -1,6 +1,6 @@
 
 {:source-paths ["src"]
- :dependencies []
+ :dependencies [[re-frame "0.10.9"]]
  :dev-http {8080 "target/"}
  :builds {:app {:output-dir "target/"
                 :asset-path "."

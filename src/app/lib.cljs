@@ -3,6 +3,6 @@
 
 (println "[lib] loading")
 
-(def c 1)
+(def c 4)
 
 (defonce d 2)
