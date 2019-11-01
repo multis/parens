@@ -33,9 +33,9 @@
 
 (defn buttons []
   [:div.flex.justify-between
-   [:button.f1.dim.br2.ba.bw2.ph4.dark-blue.b--dark-blue.pointer.w-100.mr2
+   [:button.f1.grow.br2.ba.bw2.ph4.dark-blue.b--dark-blue.pointer.w-100.mr2
     {:on-click #(rf/dispatch [::add "("])} "("]
-   [:button.f1.dim.br2.ba.bw2.ph4.dark-green.b--dark-green.pointer.w-100
+   [:button.f1.grow.br2.ba.bw2.ph4.dark-green.b--dark-green.pointer.w-100
     {:on-click #(rf/dispatch [::add ")"])} ")"]])
 
 (defn view []

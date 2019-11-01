@@ -7,4 +7,5 @@
 .shadow-cljs/
 .clj-kondo/
 .nrepl-port
-functions/
+functions/index.js
+.firebase
