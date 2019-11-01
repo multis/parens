@@ -8,4 +8,4 @@ node_modules
 .clj-kondo/
 .nrepl-port
 functions/index.js
-.firebase
+.firebase/
