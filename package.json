@@ -10,7 +10,8 @@
     "html": "mkdir -p target && cp assets/index.html target/",
     "serve": "yarn html && http-server target/",
     "del": "rm -r target/*",
-    "build": "yarn release && yarn html && yarn serve"
+    "build": "yarn release && yarn html && yarn serve",
+    "boom": "yarn del && yarn html && yarn release"
   },
   "author": "",
   "license": "MIT",
