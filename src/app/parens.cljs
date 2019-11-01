@@ -6,24 +6,30 @@
 (rf/reg-event-fx
  ::init
  (fn []
-   {:db {::parens ["(" ")"]}}))
+   {:db {::parens []}
+    :firebase-read ["parens" 105 ::on-parens]}))
+
+(rf/reg-event-fx
+ ::on-parens
+ (fn [{db :db} [_ parens]]
+   {:db (assoc db ::parens parens)}))
 
 (rf/reg-event-fx
  ::add
- (fn [{db :db} [_ elem]]
+ (fn [_ [_ elem]]
    (if (contains? #{"(" ")"} elem)
-     {:db (update db ::parens (fn [parens] (conj parens elem)))}
-     nil)))
+     {:firebase-write ["parens" elem]})))
 
 (rf/reg-sub
  ::last-parens
  (fn [db]
-   (::parens db)))
+   (sort-by first (::parens db))))
 
 (defn last-parens []
-  [:div.mt4
-   (map-indexed (fn [i elem] ^{:key i} [:span elem])
-                @(rf/subscribe [::last-parens]))])
+  [:div.mt4.f2
+   (for [[id paren] @(rf/subscribe [::last-parens])]
+     ^{:key id}
+     [:span.dib paren])])
 
 (defn buttons []
   [:div.flex.justify-between

@@ -2,6 +2,7 @@
 (ns app.main
   (:require [app.lib :as lib]
             [reagent.core :as r]
+            [app.firebase :as firebase]
             [app.parens :as parens]))
 
 (def a 1)
@@ -16,6 +17,7 @@
 
 (defn main! []
   (println "[main]: loading")
+  (firebase/init!)
   (parens/init!)
   (mount!))
 
