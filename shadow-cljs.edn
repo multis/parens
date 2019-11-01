@@ -6,4 +6,7 @@
                 :asset-path "."
                 :target :browser
                 :modules {:main {:init-fn app.main/main!}}
-                :devtools {:after-load app.main/reload!}}}}
+                :devtools {:after-load app.main/reload!}}
+          :server {:target :node-library
+                   :output-to "functions/index.js"
+                   :exports-var server.index/exports}}}
