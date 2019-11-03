@@ -1,6 +1,11 @@
-name: CI
+name: App
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "src/app/*"
 
 jobs:
   build:
