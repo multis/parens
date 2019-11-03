@@ -1,5 +1,5 @@
-![](https://github.com/multis/parens/workflows/app/badge.svg)
-![](https://github.com/multis/parens/workflows/server/badge.svg)
+![](https://github.com/multis/parens/workflows/App/badge.svg)
+![](https://github.com/multis/parens/workflows/Server/badge.svg)
 
 
 ### Commands
