@@ -1,3 +1,7 @@
+![](https://github.com/multis/parens/workflows/app/badge.svg)
+![](https://github.com/multis/parens/workflows/server/badge.svg)
+
+
 ### Commands
 
 ```
