@@ -17,7 +17,7 @@ jobs:
       - name: Install Dependencies
         run: cd functions && yarn --ignore-engines install
       - name: Build
-        run: yarn release-server
+        run: yarn boom-server
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:

@@ -13,7 +13,8 @@
     "serve": "yarn html && http-server target/",
     "del": "rm -rf target/*",
     "build": "yarn release && yarn html && yarn serve",
-    "boom": "yarn del && yarn html && yarn release"
+    "boom": "yarn del && yarn html && yarn release",
+    "boom-server": "yarn release-server"
   },
   "author": "",
   "license": "MIT",
