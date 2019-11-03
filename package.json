@@ -14,7 +14,8 @@
     "del": "rm -rf target/*",
     "build": "yarn release && yarn html && yarn serve",
     "boom": "yarn del && yarn html && yarn release",
-    "boom-server": "yarn release-server"
+    "boom-server": "yarn release-server",
+    "emulate": "export GOOGLE_APPLICATION_CREDENTIALS=~/Code/Firebase/parens/.env/fire.json && firebase emulators:start"
   },
   "author": "",
   "license": "MIT",

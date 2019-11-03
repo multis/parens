@@ -9,3 +9,4 @@ node_modules
 .nrepl-port
 functions/index.js
 .firebase/
+.env/

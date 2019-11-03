@@ -2,11 +2,13 @@
 {:source-paths ["src"]
  :dependencies [[re-frame "0.10.9"]]
  :dev-http {8080 "target/"}
- :builds {:app {:output-dir "target/"
+ :builds {:app {:target :browser
+                :output-dir "target/"
                 :asset-path "."
-                :target :browser
                 :modules {:main {:init-fn app.main/main!}}
-                :devtools {:after-load app.main/reload!}}
+                :devtools {:after-load app.main/reload!}
+                :compiler-options {:infer-externs :auto}}
           :server {:target :node-library
                    :output-to "functions/index.js"
-                   :exports-var server.index/exports}}}
+                   :exports-var server.index/exports
+                   :compiler-options {:infer-externs :auto}}}}
