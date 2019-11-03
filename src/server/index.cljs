@@ -11,7 +11,8 @@
          (.. (fire-admin/database) (ref "parens") (orderByKey) (limitToLast 105)
              (on "value"
                  (fn [^js snap]
-                   (let [data (-> snap (.val) (js->clj :keywordize-keys true))]
-                     (.json res (clj->js (vals data)))))))))))
+                   (let [data (-> snap (.val) (js->clj :keywordize-keys true))
+                         data-sorted (sort-by first data)]
+                     (.json res (clj->js (vals data-sorted)))))))))))
 
 (def exports #js {:lastParens last-parens})
