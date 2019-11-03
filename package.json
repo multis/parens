@@ -10,7 +10,7 @@
     "release": "shadow-cljs release app",
     "html": "mkdir -p target && cp assets/* target/",
     "serve": "yarn html && http-server target/",
-    "del": "rm -r target/*",
+    "del": "rm -rf target/*",
     "build": "yarn release && yarn html && yarn serve",
     "boom": "yarn del && yarn html && yarn release"
   },
