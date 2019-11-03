@@ -1,40 +1,14 @@
+### Commands
 
-Browser demo for [shadow-cljs](https://github.com/thheller/shadow-cljs)
-----
-
-### Develop
-
-Run in developmeent:
-
-```bash
-yarn
-(mkdir -p target && cp assets/index.html target/)
-yarn shadow-cljs watch app
 ```
+yarn coucou
 
-`shadow-cljs` will be installed in `node_modules/` when you run `yarn`.
+yarn watch
 
-`:dev-http` specifies that `target/` will be served at http://localhost:8080 .
+yarn boom
 
-### REPL
-
-After page is loaded, you may also start a REPL connected to browser with:
-
-```bash
-yarn shadow-cljs cljs-repl app
+firebase emulators:start
 ```
-
-### Release
-
-Compile with optimizations with `release` sub-command:
-
-```bash
-yarn shadow-cljs release app
-mkdir -p target && cp assets/index.html target/
-yarn serve # serving target/ on http://localhost:8080
-```
-
-Read docs for more http://doc.shadow-cljs.org/ .
 
 ### License
 
