@@ -3,6 +3,6 @@
 
 (def last-parens
   (.. fire-fn -https
-      (onRequest (fn [_ res] (.send res "heyheyheyo")))))
+      (onRequest (fn [_ res] (.send res "heyheyheyi")))))
 
 (def exports #js {:lastParens last-parens})
