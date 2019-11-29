@@ -17,17 +17,11 @@
 
 (rf/reg-fx
  :firebase-read
- (fn [[path limit on-value]]
-   (.. (firebase/database) (ref path) (orderByKey) (limitToLast limit)
-       (on "value"
-           (fn [snap]
-             (let [res (-> snap (.val) (js->clj :keywordize-keys true))]
-               (rf/dispatch [on-value res])))))))
+ (fn []))
 
 (rf/reg-fx
  :firebase-write
- (fn [[path value]]
-   (.. (firebase/database) (ref path) (push) (set value))))
+ (fn []))
 
 
 

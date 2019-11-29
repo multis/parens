@@ -6,19 +6,26 @@
 (rf/reg-event-fx
  ::init
  (fn []
-   {:db {::parens []}
-    :firebase-read ["parens" 105 ::on-parens]}))
+   {:db {}}))
 
-(rf/reg-event-fx
- ::on-parens
- (fn [{db :db} [_ parens]]
-   {:db (assoc db ::parens parens)}))
+(rf/reg-cofx
+ :now
+ (fn [coeffects _]
+   (assoc coeffects :now (str (js/Date.now)))))
 
 (rf/reg-event-fx
  ::add
- (fn [_ [_ elem]]
+ [(rf/inject-cofx :now)]
+ (fn [{db :db now :now} [_ elem]]
    (if (contains? #{"(" ")"} elem)
-     {:firebase-write ["parens" elem]})))
+     {:db (assoc-in db [::parens now] elem)})))
+
+(defn buttons []
+  [:div.flex.justify-between
+   [:button.f1.grow.br2.ba.bw2.ph4.dark-blue.b--dark-blue.pointer.w-100.mr2
+    {:on-click #(rf/dispatch [::add "("])} "("]
+   [:button.f1.grow.br2.ba.bw2.ph4.dark-green.b--dark-green.pointer.w-100
+    {:on-click #(rf/dispatch [::add ")"])} ")"]])
 
 (rf/reg-sub
  ::last-parens
@@ -30,13 +37,6 @@
    (for [[id paren] @(rf/subscribe [::last-parens])]
      ^{:key id}
      [:span.dib paren])])
-
-(defn buttons []
-  [:div.flex.justify-between
-   [:button.f1.grow.br2.ba.bw2.ph4.dark-blue.b--dark-blue.pointer.w-100.mr2
-    {:on-click #(rf/dispatch [::add "("])} "("]
-   [:button.f1.grow.br2.ba.bw2.ph4.dark-green.b--dark-green.pointer.w-100
-    {:on-click #(rf/dispatch [::add ")"])} ")"]])
 
 (defn view []
   [:div.mw5.center.pt5
