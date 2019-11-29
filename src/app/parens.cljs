@@ -8,17 +8,11 @@
  (fn []
    {:db {}}))
 
-(rf/reg-cofx
- :now
- (fn [coeffects _]
-   (assoc coeffects :now (str (js/Date.now)))))
-
 (rf/reg-event-fx
  ::add
- [(rf/inject-cofx :now)]
- (fn [{db :db now :now} [_ elem]]
+ (fn [_ [_ elem]]
    (if (contains? #{"(" ")"} elem)
-     {:db (assoc-in db [::parens now] elem)})))
+     {:firebase/write ["parens2" elem]})))
 
 (defn buttons []
   [:div.flex.justify-between

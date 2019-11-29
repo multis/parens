@@ -16,12 +16,13 @@
   (firebase/initializeApp config))
 
 (rf/reg-fx
- :firebase-read
+ :firebase/read
  (fn []))
 
 (rf/reg-fx
- :firebase-write
- (fn []))
+ :firebase/write
+ (fn [[path value]]
+   (.. (firebase/database) (ref path) (push) (set value))))
 
 
 
