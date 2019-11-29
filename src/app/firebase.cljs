@@ -17,7 +17,11 @@
 
 (rf/reg-fx
  :firebase/read
- (fn []))
+ (fn [[path on-value]]
+   (.. (firebase/database) (ref path)
+       (on "value" (fn [js-snapshot]
+                     (let [data (-> js-snapshot (.val) (js->clj :keywordize-keys))]
+                       (rf/dispatch [on-value data])))))))
 
 (rf/reg-fx
  :firebase/write

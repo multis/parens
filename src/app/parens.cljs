@@ -6,7 +6,13 @@
 (rf/reg-event-fx
  ::init
  (fn []
-   {:db {}}))
+   {:db {}
+    :firebase/read ["parens2" ::on-parens]}))
+
+(rf/reg-event-fx
+ ::on-parens
+ (fn [{db :db} [_ parens]]
+   {:db (assoc db ::parens parens)}))
 
 (rf/reg-event-fx
  ::add
