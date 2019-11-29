@@ -8,11 +8,11 @@ https://parens-2eb63.web.app/last
 ### Commands
 
 ```
-yarn coucou
+npm coucou
 
-yarn watch
+npm watch
 
-yarn boom
+npm boom
 
 firebase emulators:start
 ```
