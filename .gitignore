@@ -5,7 +5,7 @@ node_modules
 /package-lock.json
 /*.log
 .shadow-cljs/
-.clj-kondo/
+.clj-kondo/.cache
 .nrepl-port
 functions/index.js
 .firebase/
