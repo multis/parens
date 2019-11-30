@@ -16,11 +16,11 @@
   (firebase/initializeApp config))
 
 (rf/reg-fx
- :firebase-read
+ :firebase/read
  (fn []))
 
 (rf/reg-fx
- :firebase-write
+ :firebase/write
  (fn []))
 
 
