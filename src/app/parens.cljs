@@ -6,12 +6,14 @@
 (rf/reg-event-fx
  ::init
  (fn []
-   {:db {}}))
+   {:db {::parens {1 "("
+                   2 "("
+                   3 ")"}}}))
 
 (rf/reg-cofx
  :now
  (fn [coeffects _]
-   (assoc coeffects :now (str (js/Date.now)))))
+   (assoc coeffects :now (js/Date.now))))
 
 (rf/reg-event-fx
  ::add
