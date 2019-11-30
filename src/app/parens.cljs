@@ -6,7 +6,7 @@
 (rf/reg-event-fx
  ::init
  (fn []
-   {:db {}}))
+   {:db {::parens {1 "(" 2 "(" 3 ")"}}}))
 
 (rf/reg-event-fx
  ::add
