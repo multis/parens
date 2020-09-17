@@ -1,5 +1,12 @@
 (ns app.parens
-  (:require [re-frame.core :as rf]))
+  (:require [re-frame.core :as rf]
+            [cljs.spec.alpha :as s]
+            [app.spec :refer [check-spec-interceptor]]))
+
+(s/def ::opening-paren #{"("})
+(s/def ::closing-paren #{")"})
+(s/def ::paren (s/or :opening ::opening-paren :closing ::closing-paren))
+(s/def ::parens (s/map-of keyword? ::paren))
 
 (def init! #(rf/dispatch [::init]))
 
@@ -11,6 +18,7 @@
 
 (rf/reg-event-fx
  ::on-parens
+ [check-spec-interceptor]
  (fn [{db :db} [_ parens]]
    {:db (assoc db ::parens parens)}))
 
@@ -42,3 +50,6 @@
   [:div.mw5.center.pt5
    [buttons]
    [last-parens]])
+
+
+

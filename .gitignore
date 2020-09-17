@@ -11,3 +11,4 @@ functions/index.js
 .firebase/
 .env/
 dbscript.js
+.calva/
