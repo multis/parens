@@ -6,6 +6,7 @@
   "scripts": {
     "coucou": "shadow-cljs server",
     "watch": "shadow-cljs watch app",
+    "watch-server": "shadow-cljs watch server",
     "compile": "shadow-cljs compile app",
     "release": "shadow-cljs release app",
     "release-server": "shadow-cljs release server",
